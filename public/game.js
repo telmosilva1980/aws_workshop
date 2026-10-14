@@ -8,8 +8,8 @@
 
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = canvas.clientWidth = window.innerWidth;
-    H = canvas.clientHeight = window.innerHeight;
+    W = window.innerWidth;
+    H = window.innerHeight;
     canvas.width = Math.round(W * DPR);
     canvas.height = Math.round(H * DPR);
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
