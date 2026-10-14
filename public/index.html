@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Ship &amp; Deliver</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="scene"></canvas>
+
+    <!-- HUD, shown only while a round is in progress -->
+    <div id="hud" class="hidden">
+      <div class="glass hud-pill" id="hud-cargo">Cargo <span id="cargo-count">0</span>/<span id="cargo-total">0</span></div>
+      <div class="glass hud-pill" id="hud-score">Score <span id="score-value">0</span></div>
+      <div class="glass hud-timer">
+        <div id="timer-fill"></div>
+      </div>
+      <div id="combo" class="hidden">Combo x<span id="combo-value">1</span></div>
+    </div>
+
+    <!-- Title screen -->
+    <div id="title-screen" class="overlay glass">
+      <h1>Ship &amp; Deliver</h1>
+      <p class="tag">Run cargo across open water. Dodge the sea. Beat the dock.</p>
+      <button id="btn-start" class="primary">Set Sail</button>
+      <div class="howto">
+        <h3>How to play</h3>
+        <ul>
+          <li><strong>Move:</strong> WASD / Arrow keys, or the on-screen joystick.</li>
+          <li><strong>Boost:</strong> Space, or the BOOST button.</li>
+          <li>Collect glowing cargo, then deliver it to the port before time runs out.</li>
+          <li>Deliver quickly in succession to build a <strong>combo multiplier</strong>.</li>
+          <li>Avoid icebergs, rocks, storm swells and the pirate ship &mdash; a hit costs cargo and time.</li>
+        </ul>
+      </div>
+      <div class="scoreboard">
+        <h3>High Scores</h3>
+        <ol id="score-list"><li class="loading">Loading…</li></ol>
+      </div>
+    </div>
+
+    <!-- End-of-round screen -->
+    <div id="end-screen" class="overlay glass hidden">
+      <h2 id="end-title">Round Complete</h2>
+      <div class="breakdown" id="score-breakdown"></div>
+      <div class="total">Final Score: <span id="final-score">0</span></div>
+      <form id="save-form">
+        <input id="player-name" maxlength="20" placeholder="Enter your name" autocomplete="off" required />
+        <button type="submit" class="primary">Save Score</button>
+      </form>
+      <p id="save-status" aria-live="polite"></p>
+      <button id="btn-restart" class="secondary">Sail Again</button>
+    </div>
+
+    <!-- Mobile controls -->
+    <div id="touch-controls" class="hidden">
+      <div id="joystick-zone">
+        <div id="joystick-base"><div id="joystick-nub"></div></div>
+      </div>
+      <button id="btn-boost" class="boost-btn">BOOST</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
